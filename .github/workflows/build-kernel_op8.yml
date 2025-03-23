@@ -32,7 +32,7 @@ jobs:
     - name: Download kernel source
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/flypatriot/neutrino_kernel_oneplus_sm8250.git -b neutrino-nethunter
+        git clone https://github.com/flypatriot/neutrino_kernel_oneplus_sm8250.git -b neutrino-nethunter android-kernel
 
     - name: Download source boot image
       if: env.BUILD_BOOT_IMG == 'true'
