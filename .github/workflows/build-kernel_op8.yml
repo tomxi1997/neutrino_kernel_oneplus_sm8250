@@ -8,19 +8,7 @@ on:
 jobs:
   build:
     name: Build Kernel by ${{ github.actor }}
-    runs-on: ubuntu-22.04
-    if: github.event.repository.owner.id == github.event.sender.id
-    env:
-      CCACHE_COMPILERCHECK: "%compiler% -dumpmachine; %compiler% -dumpversion"
-      CCACHE_NOHASHDIR: "true"
-      CCACHE_HARDLINK: "true"
-      CI: "false"
-    
-        
-    - name: Set swap to 10G
-      uses: pierotofy/set-swap-space@master
-      with:
-        swap-size-gb: 10
+    runs-on: ubuntu-22.04  
 
     - name: Setup build kernel environment
       run: |
