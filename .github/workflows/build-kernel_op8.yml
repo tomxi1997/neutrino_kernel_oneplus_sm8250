@@ -125,7 +125,7 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone https://github.com/tomxi1997/AnyKernel3.git
         cp android-kernel/out/arch/arm64/boot/Image.gz AnyKernel3/
-        cp android-kernel/out/arch/arm64/boot/dtbo.img AnyKernel3/
+        #cp android-kernel/out/arch/arm64/boot/dtbo.img AnyKernel3/
         rm -rf AnyKernel3/.git* AnyKernel3/README.md
 
     - name: Make boot image with magiskboot
@@ -160,10 +160,9 @@ jobs:
         path: kernel_workspace/android-kernel/out/arch/${{ env.ARCH }}/boot/${{ env.KERNEL_IMAGE_NAME }}
 
     - name: Upload AnyKernel3
-      if: env.CHECK_FILE_IS_OK == 'true'
       uses: actions/upload-artifact@v4
       with:
-        name: AnyKernel3${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
+        name: AnyKernel3-op8
         path: kernel_workspace/AnyKernel3/*
 
     - name: Upload DTBO image
